@@ -1,13 +1,15 @@
 #ifndef RUSSIAN_H
 #define RUSSIAN_H
 
+#include "place.h"
+
 class russian {
   private:
     string name;
     int birth;
     int health;
     int stress;
-    bool state;
+    place* state;
   public:
     russian(string n, int b, int h=0) {
       name = n;
