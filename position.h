@@ -3,15 +3,16 @@
 
 #include"russian.h"
 
-class position {
+#include "items.h"
+class position : public items {
   private:
-    string name;
     russian* holder;
     int lvl;
     
   public:
-    position(string n, int l, russian* r=NULL) {
-      name = n;
+    position(string n, int l, russian* r=NULL) 
+      : items(n)
+    {
       lvl = l;
       holder = r;
     }

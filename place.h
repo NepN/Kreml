@@ -1,18 +1,15 @@
 #ifndef PLACE_H
 #define PLACE_H
 
-class place {
+#include "items.h"
+class place : public items {
   private:
-    string name;
-    
+   
   public:
-    place(string n) {
-      name = n;
-    }
-    
-    string getname() {
-      return name;
-    }
+    place(string n)
+      : items(n)
+    {}
+
 };
 
 place cure("Sanatorium");
