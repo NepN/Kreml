@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
-#include<game.h>
+
+#include"game.h"
 
 int main() {
   game first;
