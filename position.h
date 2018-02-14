@@ -15,6 +15,7 @@ class position {
       lvl = l;
       holder = r;
     }
+    
 };
 
 #endif // POSITION_H

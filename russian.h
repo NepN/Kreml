@@ -28,6 +28,7 @@ class russian {
     int realage() {
       return (1951-birth); 
     }
+    
 }
 
 #endif // RUSSIAN_H
