@@ -9,6 +9,14 @@ class russian {
     int stress;
     bool state;
   public:
+    russian(string n, int b, int h=0) {
+      name = n;
+      birth = b;
+      health = h;
+      stress = 0;
+      state = false;
+    }
+    
     string getname() {
       return name;
     }
