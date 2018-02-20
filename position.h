@@ -17,6 +17,9 @@ class position : public items {
       holder = r;
     }
     
+    russian* getholder() {
+      return holder; 
+    }
 };
 
 #endif // POSITION_H
