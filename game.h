@@ -68,7 +68,7 @@ class game {
       
     }
     void turn7() { // Rehabilitation
-      
+      //
     }
     void turn8() { // Oktoberparade 
       
