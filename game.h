@@ -34,6 +34,9 @@ class game {
     turn1() { // Phase 1: Kuren
       // forall ill russians
         // askcure();
+        // if YES then russian.state = &cure
+        // if cure ends then russian.state = &work // globale Variable abfragen
+        // 
     }
 };
 
