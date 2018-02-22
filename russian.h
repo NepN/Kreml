@@ -41,7 +41,7 @@ class russian : public items {
       state = ::plebs*; // global vordefiniert
     }
     
-   int getage() {
+    int getage() {
       return (realage()+stress);
     }
     int realage() {
@@ -108,6 +108,25 @@ class russian : public items {
           cout << "Die Parade konnte nicht beendet werden." << endl; 
       }
          
+    }
+    
+    place* getstate() {
+      return state;
+    }
+    void setstate(state* val) {
+      state = val;
+    } 
+    bool getcure() {
+      return cure;
+    }
+    void setcure(bool val) {
+      cure = val;
+    }
+    bool askplayer() {
+      cout << "Soll dieser Charakter in Kur gehen/bleiben?" << endl;
+      bool a;
+      // cin >> a;
+      return a;
     }
 };
 

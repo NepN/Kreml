@@ -8,6 +8,7 @@
 class game {
   private:
     russian* parades[8]; // argument 0 equals anno 1951
+    russian* all[25]; // Liste der Russen verwalten. Ersetzen durch Datenbank?
   
   public:
     game() {
@@ -35,11 +36,16 @@ class game {
     }
     
     void turn1() { // Phase 1: Kuren
-      // forall russians : 0 (healthy) < health < 3 (dead)
-        // askcure();
-        // if YES then russian.state = &cure
-        // if cure ends then russian.state = &work // globale Variable abfragen
-      // keine Aktiven Aktionen in dieser Runde möglich
+      for (russian* ruski : all) {
+        int a = ruski->gethealth(); 
+        if ( a == 0 ) {
+          if ruski->getcure() ruski->setcure(0);
+        } else if ( a < 3 ) {
+          ruski->setcure(ruski->askplayer());
+        } else {
+          // ruski is dead already
+        }
+      }
     }
     void turn2() { // Säuberungen
       player* atm = KGB.getholder()->getplayer();
