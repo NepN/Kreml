@@ -1,9 +1,11 @@
-#ifndef GAME_H
+  #ifndef GAME_H
 #define GAME_H
 
 #include "russian.h"
 #include "player.h"
 #include "position.h"
+
+// für "globale" Funktionen "items" von "game" deriven?
 
 class game {
   private:
@@ -17,8 +19,9 @@ class game {
     
     void play() {
       initialize();
+      // Runden
       for(int i=0; i<8; i++) {
-        round();
+        turn1();
         // anno++;
       }
     }
@@ -31,26 +34,22 @@ class game {
       // setinfluence
     }
     
-    void round() {
-      turn1();
-    }
-    
-    void turn1() { // Phase 1: Kuren
+   void turn1() { // Phase 1: Kuren
       for (russian* ruski : all) {
         int a = ruski->gethealth(); 
         if ( a == 0 ) {
           if ruski->getcure() ruski->setcure(0);
         } else if ( a < 3 ) {
-          ruski->setcure(ruski->askplayer());
+          ruski->setcure(ruski->askplayer("cure"));
         } else {
           // ruski is dead already
         }
       }
+      
+      turn2();
     }
     void turn2() { // Säuberungen
-      player* atm = KGB.getholder()->getplayer();
-      // Input von Player
-      // Befehle für Turn 2 in Klasse "position" definieren? Sub-Klassen ("KGB", "defense" etc.) von "position" definieren und spezifische Methoden hinzufügen?!
+      KGB.purge();
     }
     void turn3() { // Imperialistischer Spion 
       

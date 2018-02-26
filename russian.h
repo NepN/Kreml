@@ -7,11 +7,14 @@
 #include "items.h"
 class russian : public items {
   private:
+    // values
     int birth;
     int health;
     int stress;
     place* state;
+    // token
     bool cure;
+    bool suspicious;
     
     void sethealth(int a) {
       addhealth(health+a);
@@ -39,6 +42,8 @@ class russian : public items {
       health = h;
       stress = 0;
       state = ::plebs*; // global vordefiniert
+      cure = false;
+      suspicious = false;
     }
     
     int getage() {
@@ -122,11 +127,36 @@ class russian : public items {
     void setcure(bool val) {
       cure = val;
     }
-    bool askplayer() {
-      cout << "Soll dieser Charakter in Kur gehen/bleiben?" << endl;
-      bool a;
-      // cin >> a;
-      return a;
+    bool askplayer(string n) {
+      if ( n == "cure" ) { // umwandeln in switch-case mit hash-funktion (enum) oder ähnliches
+        cout << "Soll dieser Charakter in Kur gehen/bleiben?" << endl;
+        bool a;
+        // cin >> a;
+        return a;
+      } else if ( n == "purge") {
+        cout << "Wollen Sie einen Genossen wegsäubern?" << endl;
+        bool a;
+        // cin >> a;
+        return a;
+      } 
+    } // templatisieren für verschiedene return-Datentypen (bool, russian*, ...)
+    russian* askplayerconcrete(string n) {
+      if ( n == "purge" ) {
+        cout << "Wen wollen Sie säubern?" << endl;
+        russian* purged;
+        // cin >> &purged;
+        return purged;
+      }
+    }
+    
+    bool spy() {
+      return suspicious;
+    }
+    void suspicion(bool a) {
+      suspisious = a;
+    }
+    void addstress(int a) {
+      stress += a;
     }
 };
 
