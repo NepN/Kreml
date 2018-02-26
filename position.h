@@ -52,7 +52,7 @@ class position : public items {
           purged->suspicion(false);
           holder->addstress(1);
         } else {
-          holder->addstress(2);
+          holder->addstress(3);
           allowance = false;
         }
         

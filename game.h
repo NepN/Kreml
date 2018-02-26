@@ -31,6 +31,8 @@ class game {
       player leon("Leon");
       position chef("Parteichef",1);
       position KGB("KGB-Chef",2);
+      position ideals("Chef-Ideologe", 3);
+      player industry("Industrie-Minister", 3);
       // setinfluence
     }
     
@@ -49,7 +51,11 @@ class game {
       turn2();
     }
     void turn2() { // Säuberungen
-      KGB.purge();
+      if (KGB.holder != NULL ) KGB.purge();
+      else if (ideals.holder != NULL) ideals.purge();
+      else if (chef.holder != NULL) chef.purge();
+      else if (industry.holder != NULL) industry.purge();
+      else // Nothing
     }
     void turn3() { // Imperialistischer Spion 
       
