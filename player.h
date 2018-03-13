@@ -25,9 +25,7 @@ class player : public items {
       }
     }
     
-    void bid
-    
-    russian* getR(int i) {
+   russian* getR(int i) {
       return ilist[i];
     }
     int getI(russian* ruski) { // BAUSTELLE

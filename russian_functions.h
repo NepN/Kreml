@@ -1,3 +1,6 @@
+#ifndef RUSSIAN_FUNCTIONS_H
+#define RUSSIAN_FUNCTIONS_H
+
 class russian
 {
   public:
@@ -40,3 +43,6 @@ class russian
 
 
 };
+
+
+##endif // RUSSIAN_FUNCTIONS_H

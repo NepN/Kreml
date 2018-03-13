@@ -6,7 +6,7 @@ class hline { // provides health lines
 		int mem[46];
 		
 	public:
-		void assign(int nu,, ... ) // The "assign" function handles the int-array's values. The param function is not restricted to any number of parameters, yet here it won't work right for other than 46 parameters (plus "Anzahl").
+		void assign(int num, ... ) // The "assign" function handles the int-array's values. The param function is not restricted to any number of parameters, yet here it won't work right for other than 46 parameters (plus "Anzahl").
 		{
 			va_list params; // Zugriffshandle für Parameter
 			int intpar;	 // Parameterinhalt

@@ -5,7 +5,7 @@ class items { // mother class for named objects. share functions like getname()
   private:
     string name;
   public:
-    item(string n) {
+    items(string n) {
       name = n;
     }
     

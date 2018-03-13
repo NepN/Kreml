@@ -85,6 +85,6 @@ class russian
    
 
 
-}
+};
 
 #endif RUSSIAN_ACTIONS_H

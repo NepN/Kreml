@@ -1,4 +1,4 @@
-  #ifndef GAME_H
+#ifndef GAME_H
 #define GAME_H
 
 #include "russian.h"
@@ -69,7 +69,7 @@ class game {
         turn5();
       } else { 
         turn6();
-      
+      }
     }
     void turn5() { // Wahl des BKV (Begräbniskommisions-Vorsitzender)
       
