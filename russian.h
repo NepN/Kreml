@@ -5,6 +5,8 @@
 class player;
 #include "health.h"
 
+#include <stdlib.h> /* srand, rand */
+
 #include "items.h"
 class russian : public items {
   private:
@@ -16,7 +18,7 @@ class russian : public items {
     // token
     bool cure;
     bool suspicious;
-    
+
     void sethealth(int a) {
       addhealth(hval+a);
     }
@@ -27,17 +29,17 @@ class russian : public items {
     void correcthealth() {
       if (hval<0) {
         hval = 0;
-      } else if (hval>=3) { 
+      } else if (hval>=3) {
         hval = 3;
         state = &dead;
       }
     }
-    
+
     player* influencer;
-    int oinfluence; // highest amount a player (is current influencer) has showed 
-    
+    int oinfluence; // highest amount a player (is current influencer) has showed
+
  public:
-    russian(string n, int b, int h=0) 
+    russian(string n, int b, int h=0)
       : items(n)
     {
       birth = b;
@@ -47,26 +49,24 @@ class russian : public items {
       cure = false;
       suspicious = false;
     }
-       
-};
 
 // #include "russian_functions.h"
   // Alter und Stress
-    int realage() 
-      { return (1951-birth); }
-    int getage() 
+    int realage()
+      { return (1951- birth); }
+    int getage()
       { return (realage()+stress); }
-   void addstress(int a) 
+   void addstress(int a)
       { stress += a; }
 
  // Zustände
-    place* getstate() 
+    place* getstate()
       { return state; }
-    void setstate(place* val) 
-      { state = val; } 
-    bool getcure() 
+    void setstate(place* val)
+      { state = val; }
+    bool getcure()
       { return cure; }
-    void setcure(bool val) 
+    void setcure(bool val)
       { cure = val; }
      bool spy() {
       return suspicious;
@@ -90,7 +90,7 @@ class russian : public items {
 
 
 // #include "russian_actions.h"
-  // Turn 1: Kuren 
+  // Turn 1: Kuren
   // Turn 3: Säuberungen
     bool askplayer(string n) {
       if ( n == "cure" ) { // umwandeln in switch-case mit hash-funktion (enum) oder ähnliches
@@ -103,7 +103,7 @@ class russian : public items {
         bool a;
         // cin >> a;
         return a;
-      } 
+      }
     } // templatisieren für verschiedene return-Datentypen (bool, russian*, ...)
     russian* askplayerconcrete(string n) {
       if ( n == "purge" ) {
@@ -113,26 +113,26 @@ class russian : public items {
         return purged;
       }
     }
-    
-  // Turn 4: Gesundheitszustand ermitteln 
+
+  // Turn 4: Gesundheitszustand ermitteln
     // health-values
-    int gethealth() return hval;
+    int gethealth() { return hval; }
     void healthCheck() {
-      // roll W20 dice 
+      // roll W20 dice
       int w = rand() % 20;
       cout << "W = " << w << endl;
-      
+
       // determine right table and result (result value equals change of health)
       int c;
-      if (state->getname == "Bolitburo") { 
-        c = work.getH(age(),w); // global vordefiniert
-      } else { 
-        c = cure.getH(age(),w); // global vordefiniert
+      if (state->getname() == "Politburo") {
+        c = work.getH(getage(),w); // global vordefiniert
+      } else {
+        c = cure.getH(getage(),w); // global vordefiniert
       }
-      // apply change of health to russian's health stat 
+      // apply change of health to russian's health stat
       addhealth(c);
     }
-  
+
   // Turn 7: Rehabilitation
     void rehab(russian* ruski) {
       if (ruski->state == &sibiria) { // validate ruski is in sibiria
@@ -142,31 +142,32 @@ class russian : public items {
         stress += 5;
       }
     }
-  
+
   // Turn 8: Oktoberparade
     void parade() {
       int w = rand() % 20 + 1;
       switch (hval)
       {
-        case 2: 
+        case 2:
           stress += 2;
           if (w>=15) {
             // add event to parade-list
           }
           break;
-        case 1: 
+        case 1:
           stress += 1;
           if (w>=8) {
             // add event to parade-list
           }
           break;
-        case 0: 
+        case 0:
           // add event to parade-list
         default:
-          cout << "Die Parade konnte nicht beendet werden." << endl; 
+          cout << "Die Parade konnte nicht beendet werden." << endl;
       }
-         
+
     }
-   
+
+};
 
 #endif // RUSSIAN_H

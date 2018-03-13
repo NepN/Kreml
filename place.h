@@ -4,7 +4,7 @@
 #include "items.h"
 class place : public items {
   private:
-   
+
   public:
     place(string n)
       : items(n)
@@ -12,7 +12,7 @@ class place : public items {
 
 };
 
-place cure("Sanatorium");
+place sana("Sanatorium");
 place city("Stadt");
 place sibiria("Sibirien");
 place dead("Friedhof");
